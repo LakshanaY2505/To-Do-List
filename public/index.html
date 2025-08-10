@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do Widget</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+</head>
+<body>
+  <div id="app">
+    <h1>TO-DO LIST</h1>
+
+    <!-- Stats on top -->
+    <div id="stats">
+      <span>Total: <strong id="total-count">0</strong></span>
+      <span>Pending: <strong id="pending-count">0</strong></span>
+      <span>Completed: <strong id="completed-count">0</strong></span>
+    </div>
+
+    <!-- Input area -->
+    <div class="input-section">
+      <input id="todo-input" type="text" placeholder="Add a task...">
+      <button id="add-btn" disabled>Add</button>
+    </div>
+  
+    <!-- Empty state -->
+    <div id="empty-state">Your list is empty ✨</div>
+  
+    <!-- Todo list -->
+    <div id="todo-list"></div>
+  
+    <!-- Clear completed -->
+    <button id="clear-completed" class="hidden">Clear Completed</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
