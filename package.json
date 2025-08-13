@@ -2,11 +2,13 @@
   "name": "todo-node-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "start": "electron .",
+    "web": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["todo", "productivity", "electron", "javascript", "widget"],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -14,6 +16,8 @@
     "express": "^5.1.0"
   },
   "devDependencies": {
-    "electron": "^37.2.5"
+    "electron": "^37.2.6"
   }
+
+
 }
