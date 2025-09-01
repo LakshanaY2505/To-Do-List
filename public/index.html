@@ -7,31 +7,40 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
 </head>
 <body>
-  <div id="app">
-    <h1>TO-DO LIST</h1>
+  <div class="todo-widget">
+    <div class="banner">
+      <h1>My Tasks</h1>
+    </div>
 
-    <!-- Stats on top -->
+    <!-- Progress bar  -->
+    <div class="progress-container" id="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+      <img src="./turtle.png" id="progress-image" class="progress-image">
+    </div>
+
+    <!-- Stats  -->
     <div id="stats">
-      <span>Total: <strong id="total-count">0</strong></span>
-      <span>Pending: <strong id="pending-count">0</strong></span>
-      <span>Completed: <strong id="completed-count">0</strong></span>
+      <span> <strong id="pending-count">0</strong></span>
+      <span>/ <strong id="total-count">0</strong></span> <span>tasks</span>
     </div>
 
-    <!-- Input area -->
-    <div class="input-section">
-      <input id="todo-input" type="text" placeholder="Add a task...">
-      <button id="add-btn" disabled>Add</button>
+    <div style="display:flex; gap:5px; margin-bottom:10px;">
+      <input type="text" id="todo-input" placeholder="Add new task">
+      <button id="add-btn">Add</button>
     </div>
-  
-    <!-- Empty state -->
-    <div id="empty-state">Your list is empty ✨</div>
-  
-    <!-- Todo list -->
-    <div id="todo-list"></div>
-  
-    <!-- Clear completed -->
-    <button id="clear-completed" class="hidden">Clear Completed</button>
+
+    <ul id="todo-list"></ul>
+    <div id="empty-state">No tasks yet</div>
+
+    
+
+    <button id="clear-completed-btn">Clear Completed</button>
   </div>
+    
+    
+
+
+    
 
   <script src="script.js"></script>
 </body>

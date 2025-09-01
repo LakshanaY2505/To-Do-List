@@ -1,167 +1,99 @@
-/* Center app in screen */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #6f1d1b;
-  height: 100vh;
+
+* {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* App container */
-#app {
-  background: #e7d7c1;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  
-  text-align: center;
 
-  width: 520px;      /* increased from 380px */
-  min-height: 520px; /* ensures taller box */
-  max-width: 95%;
+/* Banner */
+.banner { 
+  background: #777; 
+  padding: 15px; 
+  text-align: center; 
+  -webkit-app-region: drag;
 }
 
-/* Title */
-h1 {
-  margin-top: auto;
-  margin-bottom: 15px;
-  color: #444;
-  font-family:'Poppins', sans-serif;
-  font-size: 50px;
+.banner h1 { 
+  color: rgb(13, 0, 0); 
+  font-size: 24px; 
+  font-weight: bold; 
+  margin: 0; 
 }
 
 /* Stats bar */
 #stats {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #f8f9fa;
-  border-radius: 10px;
-  font-size: 14px;
-  color: #555;
-  box-shadow: inset 0 0 4px rgba(0,0,0,0.05);
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+
+  margin-top: -15px;   /* moves it UP slightly */
+  margin-bottom: 20px; /* space before progress bar */
+  margin-left: 283px; 
+  text-align: left;    /* align to left */
+  
 }
 
 #stats strong {
   color: #333;
 }
 
-/* Input section */
-.input-section {
+body {
+  background: #0a0000;
   display: flex;
-  gap: 8px;
-  margin-bottom: 15px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
+.todo-widget {
+  width: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  padding: 20px;
+
+}
 #todo-input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  width: calc(100% - 60px);
+  padding: 6px;
+  font-size: 16px;
 }
 
 #add-btn {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background 0.3s;
+  width: 50px;
+  padding: 6px;
+  font-size: 16px;
 }
 
-#add-btn:disabled {
-  background: #bbb;
-  color: white;
-  cursor: not-allowed;
+/* Progress bar */
+.progress-container {
+  position: relative;
+  width: 90%;
+  height: 14px;
+  background: #ec8686;
+  border-radius: 999px;
+  overflow: visible;
+  margin: 20px auto;
+   
 }
 
-#add-btn:not(:disabled) {
-  background: #034748;
-  color: white;
-  cursor: pointer;
+.progress-bar {
+  height: 100%;
+  background: #4caf50;
+  transition: width 0.3s ease;
 }
 
-#add-btn:not(:disabled):hover {
-  background: #0b8f92;
-}
+.progress-image {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  height: 70px;
+  transition: left 0.3s ease;
+  pointer-events: none;
 
-/* Empty message */
-#empty-state {
-  text-align: center;
-  color: #777;
-  margin: 10px 0;
-}
-
-/* Todo item style */
-.todo-item {
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  background: #fafafa;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.todo-item:hover {
-  transform: scale(1.02);
-}
-
-.todo-checkbox {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #aaa;
-  border-radius: 4px;
-  text-align: center;
-  line-height: 18px;
-  cursor: pointer;
-  margin-right: 8px;
-}
-
-.todo-checkbox.checked {
-  background: #034748;
-  color: white;
-  
-}
-
-.todo-text {
-  flex: 1;
-  text-align: left;
-}
-
-.todo-text.completed {
-  text-decoration: line-through;
-  color: #999;
-}
-
-.delete-btn {
-  background: #dc3545;
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.delete-btn:hover {
-  background: #b52a37;
-}
-
-/* Clear completed button */
-#clear-completed {
-  margin-top: 10px;
-  background: #CA895F;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: none;
-  color: #f9f6f6;
-}
-
-#clear-completed.show {
-  display: block;
+   /* This allows the image to be centered on its left position */
+  transform: translateX(0);/* we'll update in JS */
 }
