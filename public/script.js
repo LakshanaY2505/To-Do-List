@@ -12,6 +12,10 @@ class TodoApp {
     this.progressBar = document.getElementById('progress-bar');
     this.progressImage = document.getElementById('progress-image');
     this.progressContainer = document.getElementById('progress-container');
+    
+    // Stats elements
+    this.pendingCount = document.getElementById('pending-count');
+    this.totalCount = document.getElementById('total-count');
 
     // Enable Add button when typing
     this.todoInput.addEventListener('input', () => {
@@ -26,13 +30,6 @@ class TodoApp {
 
     this.renderTodos();
     this.updateStats();
-
-    // Ensure image is at start once loaded
-    if (this.progressImage.complete) {
-      this.setProgressImage(0);
-    } else {
-      this.progressImage.onload = () => this.setProgressImage(0);
-    }
   }
 
   addTodo() {
@@ -78,16 +75,23 @@ class TodoApp {
       const li = document.createElement('li');
       li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
 
-      const span = document.createElement('span');
-      span.textContent = todo.text;
-      span.style.cursor = 'pointer';
-      span.addEventListener('click', () => this.toggleComplete(todo.id));
+      // Create checkbox
+      const checkbox = document.createElement('div');
+      checkbox.className = `todo-checkbox ${todo.completed ? 'checked' : ''}`;
+      checkbox.addEventListener('click', () => this.toggleComplete(todo.id));
 
+      // Create text span
+      const span = document.createElement('span');
+      span.className = 'todo-text';
+      span.textContent = todo.text;
+
+      // Create delete button
       const deleteBtn = document.createElement('button');
       deleteBtn.textContent = '×';
       deleteBtn.className = 'delete-btn';
       deleteBtn.addEventListener('click', () => this.deleteTodo(todo.id));
 
+      li.appendChild(checkbox);
       li.appendChild(span);
       li.appendChild(deleteBtn);
       this.todoList.appendChild(li);
@@ -97,6 +101,11 @@ class TodoApp {
   updateStats() {
     const total = this.todos.length;
     const completed = this.todos.filter(t => t.completed).length;
+    const pending = total - completed;
+
+    // Update stats display
+    this.totalCount.textContent = total;
+    this.pendingCount.textContent = completed;
 
     // Progress percentage
     const percentage = total === 0 ? 0 : (completed / total) * 100;
@@ -119,44 +128,13 @@ class TodoApp {
   setProgressImage(percentage) {
     if (this.progressImage && this.progressContainer) {
       const containerWidth = this.progressContainer.offsetWidth;
-      const imgWidth = this.progressImage.offsetWidth;
-
       const newLeft = (percentage / 100) * containerWidth;
       this.progressImage.style.left = newLeft + "px";
-      this.progressImage.style.transform = `translateX(-${imgWidth / 2}px)`;
+      this.progressImage.style.transform = `translateX(-50%)`;
     }
   }
-  function updateStats() {
-    const todoItems = document.querySelectorAll("#todo-list .todo-item");
-    const total = todoItems.length;
-    const pending = document.querySelectorAll("#todo-list .todo-item:not(.completed)").length;
-  
-    document.getElementById("total-count").textContent = total;
-    document.getElementById("pending-count").textContent = pending;
-  }
-  
-  // Call this after adding or removing tasks
-  // Example: when adding a task
-  document.getElementById("add-btn").addEventListener("click", () => {
-    // your code to add a new task goes here...
-    
-    updateStats();
-  });
-  
-  // Also update after marking complete/incomplete
-  document.getElementById("todo-list").addEventListener("click", (e) => {
-    if (e.target && e.target.tagName === "INPUT" && e.target.type === "checkbox") {
-      // toggle completed state
-      e.target.closest(".todo-item").classList.toggle("completed");
-      updateStats();
-    }
-  });
-  
-  // Initialize stats on page load
-  updateStats();
-
-
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   new TodoApp();
-});
+})
