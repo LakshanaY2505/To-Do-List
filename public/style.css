@@ -15,7 +15,7 @@ body {
 
 /* Banner */
 .banner {
-  background: #777;
+  background: #3C4841;
   padding: 15px;
   text-align: center;
   -webkit-app-region: drag;
@@ -24,7 +24,7 @@ body {
 }
 
 .banner h1 { 
-  color: rgb(13, 0, 0); 
+  color: white; 
   font-size: 24px; 
   font-weight: bold; 
   margin: 0; 
@@ -34,17 +34,18 @@ body {
 .progress-container {
   position: relative;
   width: 90%;
-  height: 14px;
-  background: #ec8686;
+  height: 25px;
+  background: #1D3044;
   border-radius: 999px;
   overflow: visible;
-  margin: 20px auto;
+  margin: 0 auto;
+  top: 0px;  
    
 }
 
 .progress-bar {
   height: 100%;
-  background: #4caf50;
+  background: #7EA16B;
   transition: width 0.3s ease;
 }
 
@@ -52,7 +53,7 @@ body {
   position: absolute;
   top: -30px;
   left: 0;
-  height: 70px;
+  height: 80px;
   transition: left 0.3s ease;
   pointer-events: none;
 
@@ -64,10 +65,10 @@ body {
 #stats {
   font-size: 12px;
   font-weight: bold;
-  color: #333;
-  margin-top: -15px;   /* moves it UP slightly */
-  margin-bottom: 20px; /* space before progress bar */
-  margin-left: 283px; 
+  color: white;
+  margin-top: 5px;   /* moves it UP slightly */
+  margin-bottom: 25px; /* space before progress bar */
+  margin-left: 275px; 
   text-align: left;    /* align to left */
 }
 
@@ -76,12 +77,13 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  
 }
 
 #todo-input {
   flex: 1;
   padding: 12px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #1D3044;
   border-radius: 8px;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
@@ -89,16 +91,18 @@ body {
   transition: border-color 0.3s;
   width: calc(100% - 60px);
   -webkit-app-region: no-drag;
+  background-color: #1D3044;
+  color: white;
 }
 
 #todo-input:focus {
-  border-color: #667eea;
+  border-color: white;
 }
 
 /* Add Button */
 #add-btn {
   padding: 13px 20px 13px 20px; /* top right bottom left */
-  background: #667eea;
+  background: #7EA16B;
   color: white;
   border: none;
   border-radius: 8px;
@@ -109,14 +113,15 @@ body {
   transition: background 0.3s;
   text-align: center;
   -webkit-app-region: no-drag;
+  
 }
 
 #add-btn:hover:not(:disabled) {
-  background: #5a6fd8;
+  background: #7EA16B;
 }
 
 #add-btn:disabled {
-  background: #ccc;
+  background: #1D3044;;
   cursor: not-allowed;
 }
 
@@ -135,12 +140,12 @@ body {
 }
 
 #todo-list::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #ffffff;
   border-radius: 10px;
 }
 
 #todo-list::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #c6c5c5;
 }
 
 /* Tasks Items */
@@ -149,10 +154,10 @@ body {
   align-items: center;
   padding: 15px;
   margin-bottom: 10px;
-  background: #f8f9fa;
+  background: #92B4D3;
   border-radius: 8px;
   transition: all 0.3s ease;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #1D3044;
 }
 
 .todo-item:hover {
@@ -166,9 +171,9 @@ body {
 }
 
 .todo-checkbox { /* Task checkbox */
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ddd;
+  width: 25px;
+  height: 25px;
+  border: 2px solid white;
   border-radius: 50%;
   margin-right: 15px;
   cursor: pointer;
@@ -177,22 +182,24 @@ body {
   justify-content: center;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  background-color: white;
 }
 
 .todo-checkbox:hover { 
-  border-color: #667eea;
+  border-color: #9FB447;
+  border-width: 5px;
   transform: scale(1.1);
 }
 
 .todo-checkbox.checked {
-  background: #4CAF50;
-  border-color: #4CAF50;
+  background: #476D1F;
+  border-color: #476D1F;
   color: white;
 }
 
 .todo-text { /* Task text */
   flex: 1;
-  font-size: 16px;
+  font-size: 18px;
   color: #333;
   transition: all 0.3s ease;
 }
@@ -203,7 +210,7 @@ body {
 }
 
 .delete-btn { /* Task cancel */
-  background: #ff4757;
+  background: #883F50;
   color: white;
   border: none;
   border-radius: 50%;
@@ -217,7 +224,7 @@ body {
 }
 
 .delete-btn:hover {
-  background: #ff3742;
+  background: #70161E;
   transform: scale(1.1);
 }
 
@@ -234,7 +241,7 @@ body {
 #clear-completed-btn {
   width: 100%;
   padding: 12px;
-  background: #ff6b6b;
+  background: #4a212b;
   color: white;
   border: none;
   border-radius: 8px;
@@ -254,7 +261,7 @@ body {
 }
 
 #clear-completed-btn:hover {
-  background: #ff5252;
+  background: #70161E;
   transform: translateY(-2px);
 }
 
@@ -263,7 +270,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 400px;
-  background: white;
+  background: #596F62;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   -webkit-app-region: drag;
