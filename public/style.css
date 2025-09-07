@@ -20,9 +20,8 @@ body {
   text-align: center;
   -webkit-app-region: drag;
   cursor: grab;
-  flex-shrink: 0; /* banner height stays fixed */
+  flex-shrink: 0; 
 }
-
 .banner h1 { 
   color: white; 
   font-size: 24px; 
@@ -40,15 +39,12 @@ body {
   overflow: visible;
   margin: 0 auto;
   top: 0px;  
-   
 }
-
 .progress-bar {
   height: 100%;
   background: #7EA16B;
   transition: width 0.3s ease;
 }
-
 .progress-image {
   position: absolute;
   top: -30px;
@@ -58,7 +54,7 @@ body {
   pointer-events: none;
 
    /* This allows the image to be centered on its left position */
-  transform: translateX(0);/* we'll update in JS */
+  transform: translateX(0);
 }
 
 /* Stats bar */
@@ -66,10 +62,10 @@ body {
   font-size: 12px;
   font-weight: bold;
   color: white;
-  margin-top: 5px;   /* moves it UP slightly */
-  margin-bottom: 25px; /* space before progress bar */
+  margin-top: 5px;   
+  margin-bottom: 25px; 
   margin-left: 275px; 
-  text-align: left;    /* align to left */
+  text-align: left;    
 }
 
 /* Input */
@@ -77,10 +73,7 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  
-  
 }
-
 #todo-input {
   flex: 1;
   padding: 12px;
@@ -100,12 +93,12 @@ body {
   border-color: white;
 }
 #todo-input::placeholder {
-  color: #e9e7e7;   /* change this to your desired color */
+  color: #e9e7e7;   
 }
 
 /* Add Button */
 #add-btn {
-  padding: 13px 20px 13px 20px; /* top right bottom left */
+  padding: 13px 20px 13px 20px; 
   background: #7EA16B;
   color: white;
   border: none;
@@ -117,14 +110,11 @@ body {
   transition: background 0.3s;
   text-align: center;
   -webkit-app-region: no-drag;
-  
 }
-
 #add-btn:hover:not(:disabled) {
   background: #7EA16B;
   color: #000;
 }
-
 #add-btn:disabled {
   background: #1D3044;;
   cursor: not-allowed;
@@ -134,7 +124,7 @@ body {
 #todo-list {
   list-style: none;
   margin: 0;
-  padding: 0 8px 0 0; /* right padding for scrollbar */
+  padding: 0 8px 0 0; 
   max-height: 300px;
   overflow-y: auto;
 }
@@ -143,12 +133,10 @@ body {
 #todo-list::-webkit-scrollbar {
   width: 6px;
 }
-
 #todo-list::-webkit-scrollbar-thumb {
   background: #ffffff;
   border-radius: 10px;
 }
-
 #todo-list::-webkit-scrollbar-thumb:hover {
   background: #c6c5c5;
 }
@@ -164,17 +152,14 @@ body {
   transition: all 0.3s ease;
   border-left: 4px solid #1D3044;
 }
-
 .todo-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-
 .todo-item.completed {
   background: #e8f5e8;
   border-left-color: #4CAF50;
 }
-
 .todo-checkbox { /* Task checkbox */
   width: 25px;
   height: 25px;
@@ -195,7 +180,6 @@ body {
   border-width: 5px;
   transform: scale(1.1);
 }
-
 .todo-checkbox.checked {
   background: #476D1F;
   border-color: #476D1F;
@@ -208,7 +192,6 @@ body {
   color: #333;
   transition: all 0.3s ease;
 }
-
 .todo-item.completed .todo-text {
   text-decoration: line-through;
   color: #888;
@@ -227,7 +210,6 @@ body {
   transition: all 0.3s ease;
   flex-shrink: 0;
 }
-
 .delete-btn:hover {
   background: #70161E;
   transform: scale(1.1);
@@ -237,7 +219,6 @@ body {
 #empty-state {
   text-align: center;
   color: #e8e7e7;
-  
   padding: 20px 20px;
   display: none;
 }
@@ -259,12 +240,10 @@ body {
   opacity: 0;
   transform: translateY(10px);
 }
-
 #clear-completed-btn.show {
   opacity: 1;
   transform: translateY(0);
 }
-
 #clear-completed-btn:hover {
   background: #70161E;
   transform: translateY(-2px);
@@ -279,14 +258,12 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   -webkit-app-region: drag;
-  overflow: hidden; /* keeps banner and body visually connected */
+  overflow: hidden; 
 }
-
 .todo-widget button,
 .todo-widget .todo-item {
-  -webkit-app-region: no-drag; /* keep interactive elements clickable */
+  -webkit-app-region: no-drag; 
 }
-
 .widget-body {
   padding: 20px;
   flex: 1;

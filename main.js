@@ -13,17 +13,15 @@ function createWindow() {
     maxWidth: 500,
     maxHeight: 700,
     useContentSize: true,
-    resizable: false, // Set to true if you want resizable widget
-    frame: false, // Removes the default window frame
-    alwaysOnTop: true, // Keeps widget on top of other windows
-    skipTaskbar: true, // Removes from taskbar (optional)
-    transparent: true, // Makes window background transparent
+    resizable: false, 
+    frame: false, 
+    alwaysOnTop: true, 
+    skipTaskbar: true, 
+    transparent: true, 
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true
-      
-      
     },
     x: 100,
     y: 0
